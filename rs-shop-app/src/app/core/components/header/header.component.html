@@ -1,0 +1,9 @@
+<div class="header">
+  <div class="wrapper">
+    <a
+      href=""
+      class="link-to-choose-location"
+      (click)="clickOnLinkHandler($event)"
+    ><mat-icon>place</mat-icon><span>{{ city$ | async }}</span></a>
+  </div>
+</div>

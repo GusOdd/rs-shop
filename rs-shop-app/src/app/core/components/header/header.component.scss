@@ -1,0 +1,24 @@
+@import '../../../shared/variables.scss';
+
+.header {
+  border-bottom: gray 1px solid;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 80vw;
+  height: 40px;
+}
+
+.link-to-choose-location {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  transition: color .3s;
+  &:hover {
+    color: $primary-color;
+  }
+}

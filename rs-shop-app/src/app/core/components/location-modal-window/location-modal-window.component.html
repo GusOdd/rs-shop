@@ -1,0 +1,18 @@
+<h2 mat-dialog-title align="center">Выберите город</h2>
+<p align="center">Вам будут показаны товары, а также условия доставки для выбранного города.</p>
+<mat-dialog-content>
+  <mat-radio-group class="cities-radio-group" [(ngModel)]="selectedCity">
+    <mat-radio-button class="city-radio-button" *ngFor="let city of cities" [value]="city">
+      {{city}}
+    </mat-radio-button>
+  </mat-radio-group>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button
+    mat-button
+    class="confirmation-button"
+    [mat-dialog-close]="selectedCity"
+    color="primary"
+    [disabled]="!selectedCity"
+  >сохранить</button>
+</mat-dialog-actions>
