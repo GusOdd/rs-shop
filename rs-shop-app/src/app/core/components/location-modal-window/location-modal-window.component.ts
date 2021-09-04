@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class LocationModalWindowComponent {
   cities: string[] = ['Минск', 'Брест', 'Витебск', 'Гомель', 'Гродно', 'Могилёв'];
+
   selectedCity?: string;
 }
