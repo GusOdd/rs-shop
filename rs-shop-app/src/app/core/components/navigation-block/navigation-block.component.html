@@ -1,0 +1,19 @@
+<div class="wrapper flex-block">
+  <div class="flex-block">
+    <div class="logo" routerLink="" (click)="onClickLogoHandler()">22vek.net</div>
+    <button
+      class="catalog-button flex-block"
+      (click)="onClickCatalogButtonHandler($event)"
+      [ngClass]="{ active: !isCatalogHidden }"
+    >
+      <div class="icon-container">
+        <mat-icon class="icon" *ngIf="isCatalogHidden; else close">window</mat-icon>
+      </div>
+      <span>Каталог товаров</span>
+    </button>
+  </div>
+</div>
+
+<ng-template #close>
+  <mat-icon class="icon">close</mat-icon>
+</ng-template>

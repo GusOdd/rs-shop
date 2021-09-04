@@ -1,0 +1,7 @@
+<div *ngFor="let category of categories$ | async">
+  <span><strong>{{ category.name }}</strong></span>
+  <div *ngFor="let subCategory of category.subCategories">
+    <span>{{subCategory.name}}</span>
+  </div>
+  <hr>
+</div>
