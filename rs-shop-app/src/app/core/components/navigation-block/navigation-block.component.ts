@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-navigation-block',
   templateUrl: './navigation-block.component.html',
@@ -12,7 +11,7 @@ export class NavigationBlockComponent {
 
   constructor(private router: Router) {}
 
-  onClickCatalogButtonHandler(event: Event) {
+  onClickCatalogButtonHandler() {
     if (this.isCatalogHidden) this.router.navigate(['/catalog']);
     if (!this.isCatalogHidden) this.router.navigate(['/']);
     this.isCatalogHidden = !this.isCatalogHidden;

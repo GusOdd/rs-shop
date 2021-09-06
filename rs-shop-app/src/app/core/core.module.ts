@@ -10,7 +10,13 @@ import { InformationBlockComponent } from './components/information-block/inform
 import { NavigationBlockComponent } from './components/navigation-block/navigation-block.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, LocationModalWindowComponent, InformationBlockComponent, NavigationBlockComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    LocationModalWindowComponent,
+    InformationBlockComponent,
+    NavigationBlockComponent,
+  ],
   imports: [CommonModule, RouterModule, SharedModule],
   exports: [HeaderComponent, FooterComponent],
 })

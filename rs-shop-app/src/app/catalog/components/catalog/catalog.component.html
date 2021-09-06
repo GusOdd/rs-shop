@@ -1,7 +1,34 @@
-<div *ngFor="let category of categories$ | async">
-  <span><strong>{{ category.name }}</strong></span>
-  <div *ngFor="let subCategory of category.subCategories">
-    <span>{{subCategory.name}}</span>
+<div class="wrapper">
+  <div>
+    <mat-selection-list
+      class="selection-list selection-list__main"
+      #categoriesList
+      [multiple]="false"
+    >
+      <mat-list-option
+        *ngFor="let category of categories$ | async"
+        [value]="category.id"
+        (mouseover)="onMouseOverCategoryHandler(category)"
+        class="main-category"
+      >
+        {{ category.name }}
+      </mat-list-option>
+    </mat-selection-list>
   </div>
-  <hr>
+  <div>
+    <h3 class="main-category-in-sub">{{ mainCategoryName }}</h3>
+    <mat-selection-list
+      class="selection-list selection-list__sub"
+      #subCategoriesList
+      [multiple]="false"
+    >
+      <mat-list-option
+        *ngFor="let subCategory of subCategories$ | async"
+        [value]="subCategory.id"
+        (mouseover)="onMouseOverSubCategoryHandler(subCategory)"
+      >
+        {{ subCategory.name }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
 </div>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IIpInfo } from '../models/ip-info.type';
 import { IP_SERVICE } from 'src/app/shared/constants';
+import { IIpInfo } from '../models/ip-info.type';
 
 @Injectable()
 export class ProvideTokenInterceptor implements HttpInterceptor {

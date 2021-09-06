@@ -6,6 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatRadioModule,
     FormsModule,
     MatMenuModule,
+    MatListModule,
   ],
 })
 export class SharedModule {}
