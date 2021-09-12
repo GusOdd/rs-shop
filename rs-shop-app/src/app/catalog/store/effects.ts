@@ -8,7 +8,12 @@ import { BACKEND } from 'src/app/shared/constants';
 import { ICategory } from '../models/category.type';
 import { IGoods } from '../models/goods.type';
 import { IMainCategory } from '../models/main-category.type';
-import { loadCategories, loadCategoriesSuccessful, loadGoods, loadGoodsSuccessful } from './actions';
+import {
+  loadCategories,
+  loadCategoriesSuccessful,
+  loadGoods,
+  loadGoodsSuccessful,
+} from './actions';
 
 @Injectable({
   providedIn: 'root',

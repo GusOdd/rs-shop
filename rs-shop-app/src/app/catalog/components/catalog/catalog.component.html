@@ -11,7 +11,8 @@
         (mouseover)="onMouseOverCategoryHandler(category)"
         class="main-category"
       >
-        {{ category.name }}
+        <app-fa-icon [categoryID]="category.id"></app-fa-icon>
+        <span class="main-category__name">{{ category.name }}</span>
       </mat-list-option>
     </mat-selection-list>
   </div>

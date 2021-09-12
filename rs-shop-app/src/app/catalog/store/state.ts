@@ -9,9 +9,9 @@ export const initialCatalogState: ICatalogState = {
         {
           id: '0',
           name: 'NoSubCategoryName',
-        }
+        },
       ],
-    }
+    },
   ],
   goods: [
     {

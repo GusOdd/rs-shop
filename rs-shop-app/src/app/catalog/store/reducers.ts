@@ -1,5 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadCategories, loadCategoriesSuccessful, loadGoods, loadGoodsSuccessful } from './actions';
+import {
+  loadCategories,
+  loadCategoriesSuccessful,
+  loadGoods,
+  loadGoodsSuccessful,
+} from './actions';
 import { initialCatalogState } from './state';
 
 export const catalogReducer = createReducer(

@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,7 @@ import { MatListModule } from '@angular/material/list';
     FormsModule,
     MatMenuModule,
     MatListModule,
+    FontAwesomeModule,
   ],
 })
 export class SharedModule {}

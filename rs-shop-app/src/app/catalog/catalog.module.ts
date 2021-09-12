@@ -8,9 +8,10 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { catalogReducer } from './store/reducers';
 import { CatalogEffects } from './store/effects';
 import { SharedModule } from '../shared/shared.module';
+import { FaIconComponent } from './components/fa-icon/fa-icon.component';
 
 @NgModule({
-  declarations: [CatalogComponent],
+  declarations: [CatalogComponent, FaIconComponent],
   imports: [
     CommonModule,
     SharedModule,
