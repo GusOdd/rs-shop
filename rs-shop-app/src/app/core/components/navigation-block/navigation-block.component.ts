@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CatalogService } from 'src/app/catalog/services/catalog.service';
 
 @Component({
   selector: 'app-navigation-block',
@@ -7,17 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation-block.component.scss'],
 })
 export class NavigationBlockComponent {
-  isCatalogHidden: boolean = true;
-
-  constructor(private router: Router) {}
+  constructor(private router: Router, public catalogService: CatalogService) {}
 
   onClickCatalogButtonHandler() {
-    if (this.isCatalogHidden) this.router.navigate(['/catalog']);
-    if (!this.isCatalogHidden) this.router.navigate(['/']);
-    this.isCatalogHidden = !this.isCatalogHidden;
+    if (this.catalogService.isCatalogHidden) this.router.navigate(['/catalog']);
+    if (!this.catalogService.isCatalogHidden) this.router.navigate(['/']);
+    this.catalogService.isCatalogHidden = !this.catalogService.isCatalogHidden;
   }
 
   onClickLogoHandler() {
-    this.isCatalogHidden = true;
+    this.catalogService.isCatalogHidden = true;
   }
 }

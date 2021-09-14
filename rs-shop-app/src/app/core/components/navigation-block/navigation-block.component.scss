@@ -19,7 +19,7 @@
   font-weight: bold;
   font-size: 25px;
   color: white;
-  background-color: $primary-color;
+  background: linear-gradient(to right, $primary-color, $primary-color-light);
   cursor: pointer;
   user-select: none;
 }

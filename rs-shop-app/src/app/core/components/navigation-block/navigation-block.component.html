@@ -4,10 +4,10 @@
     <button
       class="catalog-button flex-block"
       (click)="onClickCatalogButtonHandler()"
-      [ngClass]="{ active: !isCatalogHidden }"
+      [ngClass]="{ active: !catalogService.isCatalogHidden }"
     >
       <div class="icon-container">
-        <mat-icon class="icon" *ngIf="isCatalogHidden; else close">window</mat-icon>
+        <mat-icon class="icon" *ngIf="catalogService.isCatalogHidden; else close">window</mat-icon>
       </div>
       <span>Каталог товаров</span>
     </button>

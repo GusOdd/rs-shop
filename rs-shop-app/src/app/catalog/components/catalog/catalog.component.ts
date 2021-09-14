@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IAppState } from 'src/app/models/app-state.type';
 import { toggleSelectedItem } from 'src/app/shared/functions';
-import { ICategory } from '../../models/category.type';
-import { IMainCategory } from '../../models/main-category.type';
-import { loadCategories } from '../../store/actions';
+import { ICategory } from '../../../core/models/category.type';
+import { IMainCategory } from '../../../core/models/main-category.type';
+import { loadCategories } from '../../../core/store/actions';
 
 @Component({
   selector: 'app-catalog',
@@ -20,6 +20,8 @@ export class CatalogComponent implements OnInit {
   subCategories$!: Observable<ICategory[]>;
 
   mainCategoryName!: string;
+
+  mainCategoryID!: string;
 
   @ViewChild('categoriesList') categoriesList?: MatSelectionList;
 
@@ -36,6 +38,7 @@ export class CatalogComponent implements OnInit {
     toggleSelectedItem(this.categoriesList!, mainCategory.id);
 
     this.mainCategoryName = mainCategory.name;
+    this.mainCategoryID = mainCategory.id;
 
     this.subCategories$ = this.categories$.pipe(
       map((categories) => {

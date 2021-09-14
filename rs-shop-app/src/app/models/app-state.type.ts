@@ -1,4 +1,4 @@
-import { ICatalogState } from '../catalog/models/catalog-state.type';
+import { ICatalogState } from '../core/models/catalog-state.type';
 
 export interface IAppState {
   catalogState: ICatalogState;

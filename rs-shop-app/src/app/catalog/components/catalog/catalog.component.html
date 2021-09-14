@@ -27,6 +27,7 @@
         *ngFor="let subCategory of subCategories$ | async"
         [value]="subCategory.id"
         (mouseover)="onMouseOverSubCategoryHandler(subCategory)"
+        [routerLink]="[mainCategoryID, subCategory.id]"
       >
         {{ subCategory.name }}
       </mat-list-option>

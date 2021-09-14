@@ -1,0 +1,11 @@
+<div class="categories-block">
+  <div class="wrapper flex-block">
+    <div
+      class="category"
+      *ngFor="let category of categories$ | async"
+      [routerLink]="['catalog', category.id]"
+    >
+      {{ category.name }}
+    </div>
+  </div>
+</div>
