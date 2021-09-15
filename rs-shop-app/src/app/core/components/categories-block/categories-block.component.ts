@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IMainCategory } from '../../models/main-category.type';
 import { loadCategories } from '../../store/actions';
 import { IAppState } from '../../../models/app-state.type';
+import { CatalogService } from 'src/app/catalog/services/catalog.service';
 
 @Component({
   selector: 'app-categories-block',
@@ -13,7 +14,7 @@ import { IAppState } from '../../../models/app-state.type';
 export class CategoriesBlockComponent implements OnInit {
   categories$!: Observable<IMainCategory[]>;
 
-  constructor(private store: Store<IAppState>) {}
+  constructor(private store: Store<IAppState>, public catalogService: CatalogService) {}
 
   ngOnInit(): void {
     this.store.dispatch(loadCategories());

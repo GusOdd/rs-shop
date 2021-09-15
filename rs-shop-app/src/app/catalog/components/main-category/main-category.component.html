@@ -1,1 +1,2 @@
-<p>main-category works!</p>
+<p>{{mainCategoryID}}</p>
+<span *ngFor="let subCategory of catalogService.subCategories$ | async">{{ subCategory.name }}</span>
