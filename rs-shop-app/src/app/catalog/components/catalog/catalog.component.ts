@@ -8,6 +8,7 @@ import { toggleSelectedItem } from 'src/app/shared/functions';
 import { ICategory } from '../../../core/models/category.type';
 import { IMainCategory } from '../../../core/models/main-category.type';
 import { loadCategories } from '../../../core/store/actions';
+import { CatalogService } from '../../services/catalog.service';
 
 @Component({
   selector: 'app-catalog',
@@ -27,7 +28,9 @@ export class CatalogComponent implements OnInit {
 
   @ViewChild('subCategoriesList') subCategoriesList?: MatSelectionList;
 
-  constructor(private store: Store<IAppState>) {}
+  constructor(private store: Store<IAppState>, private catalogService: CatalogService) {
+    this.catalogService.isCatalogHidden = false;
+  }
 
   ngOnInit(): void {
     this.store.dispatch(loadCategories());
