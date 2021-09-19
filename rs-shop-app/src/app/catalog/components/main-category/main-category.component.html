@@ -1,2 +1,10 @@
-<p>{{mainCategoryID}}</p>
-<span *ngFor="let subCategory of catalogService.subCategories$ | async">{{ subCategory.name }}</span>
+<div class="wrapper">
+  <mat-selection-list [multiple]="false">
+    <mat-list-option
+      *ngFor="let subCategory of catalogService.subCategories$ | async"
+      [routerLink]="[subCategory.id]"
+    >
+      {{ subCategory.name }}
+    </mat-list-option>
+  </mat-selection-list>
+</div>

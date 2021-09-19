@@ -11,6 +11,7 @@ export class MainCategoryComponent {
   mainCategoryID?: string;
 
   constructor(private route: ActivatedRoute, public catalogService: CatalogService) {
-    this.route.params.subscribe((value) => (this.mainCategoryID = value.mainCategoryID));
+    this.route.params.subscribe((value) => this.mainCategoryID = value.mainCategoryID);
+    this.catalogService.getSubCategories(this.mainCategoryID!);
   }
 }

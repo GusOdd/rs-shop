@@ -4,6 +4,7 @@
       class="category"
       *ngFor="let category of categories$ | async"
       [routerLink]="['catalog', category.id]"
+      routerLinkActive="active-category"
       (click)="catalogService.getSubCategories(category.id)"
     >
       {{ category.name }}
