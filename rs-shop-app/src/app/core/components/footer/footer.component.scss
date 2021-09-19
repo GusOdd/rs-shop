@@ -1,0 +1,44 @@
+@import '../../../shared/variables.scss';
+
+.footer {
+  border-top: gray 1px solid;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 80vw;
+}
+
+.flex-block {
+  display: flex;
+  align-items: center;
+  &.contacts,
+  &.social {
+    justify-content: center;
+  }
+}
+
+.contacts,
+.social {
+  height: 40px;
+}
+
+.menu-item,
+.icon {
+  margin: 0 5px;
+}
+
+.viber,
+.telegram,
+.email,
+.icon-link {
+  text-decoration: none;
+  color: black;
+  transition: color .3s;
+  &:hover {
+    color: $primary-color;
+    & .logo .fill {
+      fill: $primary-color;
+    }
+  }
+}

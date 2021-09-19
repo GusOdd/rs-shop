@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <mat-selection-list [multiple]="false">
+  <mat-selection-list [multiple]="false" class="selection-list">
     <mat-list-option
       *ngFor="let subCategory of catalogService.subCategories$ | async"
       [routerLink]="[subCategory.id]"
