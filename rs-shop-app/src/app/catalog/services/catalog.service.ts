@@ -26,7 +26,7 @@ export class CatalogService {
           return selectedMainCategory[0].subCategories;
         }),
       );
-    
+
     this.isCatalogHidden = true;
   }
 }

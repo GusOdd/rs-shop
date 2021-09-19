@@ -14,8 +14,12 @@ import {
 })
 export class FooterComponent {
   vkIcon = faVk;
+
   fbIcon = faFacebook;
+
   instagramIcon = faInstagram;
+
   youtubeIcon = faYoutube;
+
   okIcon = faOdnoklassniki;
 }

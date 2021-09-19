@@ -7,7 +7,6 @@ import { IAppState } from 'src/app/models/app-state.type';
 import { toggleSelectedItem } from 'src/app/shared/functions';
 import { ICategory } from '../../../core/models/category.type';
 import { IMainCategory } from '../../../core/models/main-category.type';
-import { loadCategories } from '../../../core/store/actions';
 import { CatalogService } from '../../services/catalog.service';
 
 @Component({
@@ -33,7 +32,6 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadCategories());
     this.categories$ = this.store.select((state) => state.catalogState.categories);
   }
 

@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     MatMenuModule,
     MatListModule,
+    MatCardModule,
     FontAwesomeModule,
   ],
 })

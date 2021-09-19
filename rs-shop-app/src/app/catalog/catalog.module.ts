@@ -7,9 +7,20 @@ import { SharedModule } from '../shared/shared.module';
 import { FaIconComponent } from './components/fa-icon/fa-icon.component';
 import { SubcategoryComponent } from './components/subcategory/subcategory.component';
 import { MainCategoryComponent } from './components/main-category/main-category.component';
+import { ProductRatingComponent } from './components/product-rating/product-rating.component';
+import { SortingPipe } from './pipes/sorting.pipe';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
-  declarations: [CatalogComponent, FaIconComponent, SubcategoryComponent, MainCategoryComponent],
+  declarations: [
+    CatalogComponent,
+    FaIconComponent,
+    SubcategoryComponent,
+    MainCategoryComponent,
+    ProductRatingComponent,
+    SortingPipe,
+    ProductComponent,
+  ],
   imports: [CommonModule, SharedModule, CatalogRoutingModule],
 })
 export class CatalogModule {}

@@ -1,1 +1,37 @@
-<p>subcategory works!</p>
+<div class="wrapper">
+  <div class="breadcrumbs-and-sorting flex-block">
+    <div class="breadcrumbs">
+      <span>{{ mainCategoryName$ | async }}</span>
+      <fa-icon class="icon" [icon]="chevronIcon" size="xs"></fa-icon>
+      <span>{{ subCategoryName$ | async }}</span>
+    </div>
+    <div class="sorting">
+      <span>Сортировать по: </span>
+      <button mat-stroked-button color="warn" (click)="sortingHandler()">РЕЙТИНГУ</button>
+      <button mat-stroked-button color="warn" (click)="sortingHandler()">ЦЕНЕ</button>
+    </div>
+  </div>
+  <div class="goods flex-block">
+    <mat-card
+      *ngFor="let product of (goods$ | async)! | sorting: isSortingAscending:typeOfSorting"
+      class="product"
+    >
+      <img mat-card-image src="{{ product.imageUrls[0] }}" alt="{{ product.name }}" />
+      <mat-card-title class="title"
+        ><a routerLink="{{ product.id }}">{{ product.name }}</a></mat-card-title
+      >
+      <mat-card-subtitle class="available"
+        >В наличии: {{ product.availableAmount }}</mat-card-subtitle
+      >
+      <mat-card-content>
+        <p class="description">{{ product.description }}</p>
+        <p class="price">{{ product.price | number: '1.2-2' }}р.</p>
+        <app-product-rating class="rating" [rating]="product.rating"></app-product-rating>
+      </mat-card-content>
+      <mat-card-actions class="buttons">
+        <button mat-raised-button color="accent">В КОРЗИНУ</button>
+        <button mat-raised-button color="primary">В ИЗБРАННОЕ</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

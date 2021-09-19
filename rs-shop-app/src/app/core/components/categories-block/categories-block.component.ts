@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { CatalogService } from 'src/app/catalog/services/catalog.service';
 import { IMainCategory } from '../../models/main-category.type';
 import { loadCategories } from '../../store/actions';
 import { IAppState } from '../../../models/app-state.type';
-import { CatalogService } from 'src/app/catalog/services/catalog.service';
 
 @Component({
   selector: 'app-categories-block',

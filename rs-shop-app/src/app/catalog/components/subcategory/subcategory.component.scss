@@ -1,0 +1,55 @@
+@import '../../../shared/variables.scss';
+
+.wrapper {
+  margin: 0 auto;
+  width: 80vw;
+}
+
+.breadcrumbs {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.sorting {
+  margin: 10px 0;
+}
+
+.icon {
+  padding: 0 3px;
+}
+
+.flex-block {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  &.breadcrumbs-and-sorting {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.product {
+  width: 240px;
+  margin-bottom: 10px;
+}
+
+.title,
+.available,
+.price,
+.buttons {
+  text-align: center;
+}
+
+.title {
+  line-height: 26px;
+}
+
+.description {
+  text-align: justify;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: bold;
+  color: $primary-color;
+}
