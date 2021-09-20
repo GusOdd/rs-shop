@@ -57,12 +57,6 @@ export class ProductComponent {
         ),
         map((value) => value!.name),
       );
-    
-    this.store
-      .select((state) => state.catalogState.goods)
-      .pipe(map((value) => value.find((product) => product.id === this.productID)))
-      .subscribe(x => console.log(x));
-
   }
 
   clickHandler(imageUrl: string) {

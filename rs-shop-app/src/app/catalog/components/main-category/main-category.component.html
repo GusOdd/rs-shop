@@ -1,8 +1,14 @@
 <div class="wrapper">
-  <mat-selection-list [multiple]="false" class="selection-list">
+  <mat-selection-list
+    class="selection-list"
+    #subCategoriesList
+    [multiple]="false"
+  >
     <mat-list-option
       *ngFor="let subCategory of catalogService.subCategories$ | async"
+      [value]="subCategory.id"
       [routerLink]="[subCategory.id]"
+      (mouseover)="onMouseOverSubCategoryHandler(subCategory)"
     >
       {{ subCategory.name }}
     </mat-list-option>
