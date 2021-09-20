@@ -1,1 +1,43 @@
-<p>product works!</p>
+<div class="wrapper" *ngIf="product$ | async as product">
+  <div class="breadcrumbs flex-block">
+    <span>{{ mainCategoryName$ | async }}</span>
+    <fa-icon class="icon" [icon]="chevronIcon" size="xs"></fa-icon>
+    <span>{{ subCategoryName$ | async }}</span>
+    <fa-icon class="icon" [icon]="chevronIcon" size="xs"></fa-icon>
+    <span>{{ product.name }}</span>
+  </div>
+  <div class="image-slider" *ngIf="product.imageUrls.length !== 0; else noImage">
+    <div class="image-slider__selectors">
+      <div
+        class="image-slider__selector image"
+        *ngFor="let imageUrl of product.imageUrls"
+        [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }"
+        (click)="clickHandler(imageUrl)"
+      ></div>
+    </div>
+    <div class="image-slider__view image" #sliderView [ngStyle]="{ 'background-image': 'url(' + product.imageUrls[0] + ')' }">
+      <app-product-rating class="rating" [rating]="product.rating"></app-product-rating>
+    </div>
+  </div>
+  <div class="button-and-price">
+    <span class="price">{{ product.price | number: '1.2-2' }}р.</span>
+    <button mat-raised-button class="button" color="accent">В КОРЗИНУ</button>
+    <button mat-raised-button class="button" color="primary">В ИЗБРАННОЕ</button>
+    <span class="available">В наличии: {{ product.availableAmount }}</span>
+  </div>
+  <mat-tab-group class="mat-tab-group" animationDuration="0ms">
+    <mat-tab label="Описание">
+      <div class="description">{{ product.description }}</div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<ng-template #noImage>
+  <div
+    class="no-image image"
+    [ngStyle]="{
+      'background-image':
+        'url(https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg)'
+    }"
+  ></div>
+</ng-template>

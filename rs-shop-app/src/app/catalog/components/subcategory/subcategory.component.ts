@@ -62,11 +62,6 @@ export class SubcategoryComponent {
     this.goods$ = this.store
       .select((state) => state.catalogState.goods)
       .pipe(map((value) => value.filter((goods) => goods.subCategoryID === this.subCategoryID)));
-
-    this.store
-      .select((state) => state.catalogState.goods)
-      .pipe(map((value) => value.filter((goods) => goods.subCategoryID === this.subCategoryID)))
-      .subscribe((value) => console.log(value));
   }
 
   sortingHandler() {
