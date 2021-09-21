@@ -11,6 +11,42 @@
       </div>
       <span>Каталог товаров</span>
     </button>
+    <form class="search-form">
+      <mat-form-field class="search-full-width" appearance="fill">
+        <mat-label>Поиск товаров</mat-label>
+        <input
+          type="text"
+          placeholder="Введите название категории или товара"
+          aria-label="Number"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let mainCategory of filteredMainCategories$ | async"
+            [value]="mainCategory.name"
+            [routerLink]="['catalog', mainCategory.id]"
+          >
+            {{ mainCategory.name }}
+          </mat-option>
+          <mat-option
+            *ngFor="let subCategory of filteredSubCategories$ | async"
+            [value]="subCategory.name"
+            [routerLink]="['catalog', subCategory.mainCategoryID, subCategory.id]"
+          >
+            {{ subCategory.name }}
+          </mat-option>
+          <mat-option
+            *ngFor="let product of filteredGoods$ | async"
+            [value]="product.name"
+            [routerLink]="['catalog', product.mainCategoryID, product.subCategoryID, product.id]"
+          >
+            {{ product.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
   </div>
 </div>
 

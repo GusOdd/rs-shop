@@ -15,17 +15,17 @@ import { CatalogService } from '../../services/catalog.service';
   styleUrls: ['./subcategory.component.scss'],
 })
 export class SubcategoryComponent {
-  mainCategoryID: string;
+  mainCategoryID?: string;
 
-  subCategoryID: string;
+  subCategoryID?: string;
 
-  mainCategoryName$: Observable<string>;
+  mainCategoryName$?: Observable<string>;
 
-  subCategoryName$: Observable<string>;
+  subCategoryName$?: Observable<string>;
 
   chevronIcon = faChevronRight;
 
-  goods$: Observable<IGoods[]>;
+  goods$?: Observable<IGoods[]>;
 
   typeOfSorting?: 'rating' | 'price';
 
@@ -38,9 +38,17 @@ export class SubcategoryComponent {
   ) {
     this.catalogService.isCatalogHidden = true;
 
-    this.mainCategoryID = this.route.snapshot.params.mainCategoryID;
-    this.subCategoryID = this.route.snapshot.params.subCategoryID;
+    this.route.params.subscribe((value) => {
+      this.mainCategoryID = value.mainCategoryID;
+      this.subCategoryID = value.subCategoryID;
 
+      this.loadSubCategoryDetail();
+    });
+
+    this.store.dispatch(loadGoods());
+  }
+
+  private loadSubCategoryDetail(): void {
     this.mainCategoryName$ = this.store
       .select((state) => state.catalogState.categories)
       .pipe(
@@ -58,7 +66,6 @@ export class SubcategoryComponent {
         map((value) => value!.name),
       );
 
-    this.store.dispatch(loadGoods());
     this.goods$ = this.store
       .select((state) => state.catalogState.goods)
       .pipe(map((value) => value.filter((goods) => goods.subCategoryID === this.subCategoryID)));

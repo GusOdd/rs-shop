@@ -16,8 +16,10 @@ export class MainCategoryComponent {
   @ViewChild('subCategoriesList') subCategoriesList?: MatSelectionList;
 
   constructor(private route: ActivatedRoute, public catalogService: CatalogService) {
-    this.mainCategoryID = this.route.snapshot.params.mainCategoryID;
-    this.catalogService.getSubCategories(this.mainCategoryID!);
+    this.route.params.subscribe((value) => {
+      this.mainCategoryID = value.mainCategoryID;
+      this.catalogService.getSubCategories(this.mainCategoryID!);
+    });
   }
 
   onMouseOverSubCategoryHandler(subCategory: ICategory) {

@@ -14,28 +14,35 @@ import { IAppState } from 'src/app/models/app-state.type';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
-  productID: string;
+  productID?: string;
 
   product$?: Observable<IGoods | undefined>;
 
-  mainCategoryID: string;
+  mainCategoryID?: string;
 
-  subCategoryID: string;
+  subCategoryID?: string;
 
-  mainCategoryName$: Observable<string>;
+  mainCategoryName$?: Observable<string>;
 
-  subCategoryName$: Observable<string>;
+  subCategoryName$?: Observable<string>;
 
   chevronIcon = faChevronRight;
 
   @ViewChild('sliderView') sliderView?: ElementRef;
 
   constructor(private route: ActivatedRoute, private store: Store<IAppState>) {
-    this.productID = this.route.snapshot.params.productID;
-    this.mainCategoryID = this.route.snapshot.params.mainCategoryID;
-    this.subCategoryID = this.route.snapshot.params.subCategoryID;
+    this.route.params.subscribe((value) => {
+      this.productID = value.productID;
+      this.mainCategoryID = value.mainCategoryID;
+      this.subCategoryID = value.subCategoryID;
+
+      this.loadProductDetail();
+    });
 
     this.store.dispatch(loadGoods());
+  }
+
+  private loadProductDetail(): void {
     this.product$ = this.store
       .select((state) => state.catalogState.goods)
       .pipe(map((value) => value.find((product) => product.id === this.productID)));
