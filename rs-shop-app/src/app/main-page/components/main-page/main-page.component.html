@@ -1,0 +1,26 @@
+<div class="wrapper" *ngIf="products$ | async as products">
+  <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
+    <ng-template ngbSlide *ngFor="let product of products">
+      <div class="carousel-caption">
+        <h3 class="product-name">{{ product.name }}</h3>
+      </div>
+      <a [routerLink]="['catalog', product.mainCategoryID, product.subCategoryID, product.id]" routerLinkActive="router-link-active">
+        <div
+          class="picsum-img-wrapper"
+          [ngStyle]="{ 'background-image': 'url(' + product.imageUrls[0] + ')' }"
+          *ngIf="product.imageUrls.length !== 0; else noImage"
+        ></div>
+      </a>
+    </ng-template>
+  </ngb-carousel>
+</div>
+
+<ng-template #noImage>
+  <div
+    class="picsum-img-wrapper"
+    [ngStyle]="{
+      'background-image':
+        'url(https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg)'
+    }"
+  ></div>
+</ng-template>

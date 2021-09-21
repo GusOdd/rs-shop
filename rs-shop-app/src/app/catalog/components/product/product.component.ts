@@ -30,8 +30,7 @@ export class ProductComponent {
 
   @ViewChild('sliderView') sliderView?: ElementRef;
 
-  constructor(private route: ActivatedRoute, private store: Store<IAppState>,
-    ) {
+  constructor(private route: ActivatedRoute, private store: Store<IAppState>) {
     this.productID = this.route.snapshot.params.productID;
     this.mainCategoryID = this.route.snapshot.params.mainCategoryID;
     this.subCategoryID = this.route.snapshot.params.subCategoryID;
@@ -40,7 +39,7 @@ export class ProductComponent {
     this.product$ = this.store
       .select((state) => state.catalogState.goods)
       .pipe(map((value) => value.find((product) => product.id === this.productID)));
-    
+
     this.mainCategoryName$ = this.store
       .select((state) => state.catalogState.categories)
       .pipe(
@@ -60,6 +59,8 @@ export class ProductComponent {
   }
 
   clickHandler(imageUrl: string) {
-    (this.sliderView!.nativeElement as HTMLDivElement).style.cssText = `background-image: url('${imageUrl}');`;
+    (
+      this.sliderView!.nativeElement as HTMLDivElement
+    ).style.cssText = `background-image: url('${imageUrl}');`;
   }
 }

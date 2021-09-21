@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatCardModule,
     MatTabsModule,
     FontAwesomeModule,
+    NgbModule,
   ],
 })
 export class SharedModule {}
