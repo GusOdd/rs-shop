@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { IGoods } from 'src/app/core/models/goods.type';
 import { loadGoods } from 'src/app/core/store/actions';
 import { IAppState } from 'src/app/models/app-state.type';
+import { MAIN_PAGE_ITEMS } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-main-page',
@@ -33,7 +34,7 @@ export class MainPageComponent {
       .pipe(
         map((value) => {
           const goods: IGoods[] = [];
-          for (let i = 0; i < 5; i += 1) {
+          for (let i = 0; i < MAIN_PAGE_ITEMS; i += 1) {
             const index = Math.floor(Math.random() * value.length);
             goods.push(value[index]);
           }

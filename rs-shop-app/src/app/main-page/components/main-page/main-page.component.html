@@ -4,7 +4,7 @@
       <div class="carousel-caption">
         <h3 class="product-name">{{ product.name }}</h3>
       </div>
-      <a [routerLink]="['catalog', product.mainCategoryID, product.subCategoryID, product.id]" routerLinkActive="router-link-active">
+      <a [routerLink]="['catalog', product.mainCategoryID, product.subCategoryID, product.id]">
         <div
           class="picsum-img-wrapper"
           [ngStyle]="{ 'background-image': 'url(' + product.imageUrls[0] + ')' }"
@@ -13,6 +13,7 @@
       </a>
     </ng-template>
   </ngb-carousel>
+  <app-popular-items></app-popular-items>
 </div>
 
 <ng-template #noImage>
