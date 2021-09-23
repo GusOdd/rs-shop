@@ -1,0 +1,33 @@
+@import '../../../shared/variables.scss';
+
+.categories-block {
+  background: linear-gradient(to right, $primary-color, $primary-color-light);
+}
+
+.flex-block {
+  display: flex;
+}
+
+.wrapper {
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80vw;
+  height: 40px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 100%;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .3s;
+  &:hover,
+  &.active-category {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}

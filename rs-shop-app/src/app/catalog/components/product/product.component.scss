@@ -1,0 +1,87 @@
+@import '../../../shared/variables.scss';
+
+.wrapper {
+  margin: 0 auto;
+  width: 80vw;
+}
+
+.flex-block {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs {
+  height: 56px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.icon {
+  padding: 0 3px;
+}
+
+.image {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+
+.image-slider {
+  display: flex;
+  gap: 10px;
+}
+
+.image-slider__selector {
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  width: 100px;
+  height: 100px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.image-slider__view {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 10px;
+  height: 600px;
+  flex-grow: 10;
+}
+
+.no-image {
+  height: 400px;
+}
+
+.button-and-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: bold;
+  color: $primary-color;
+}
+
+.button {
+  margin: 0 20px;
+}
+
+.available {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mat-tab-group {
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 20px;
+}

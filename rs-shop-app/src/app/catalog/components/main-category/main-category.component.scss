@@ -1,0 +1,14 @@
+@import '../../../shared/variables.scss';
+
+.wrapper {
+  margin: 0 auto;
+  width: 80vw;
+}
+
+.selection-list {
+  padding-top: 0;
+}
+
+.active {
+  color: $primary-color;
+}

@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div>
+    <mat-selection-list
+      class="selection-list selection-list__main"
+      #categoriesList
+      [multiple]="false"
+    >
+      <mat-list-option
+        *ngFor="let category of categories$ | async"
+        [value]="category.id"
+        (mouseover)="onMouseOverCategoryHandler(category)"
+        class="main-category"
+      >
+        <app-fa-icon [categoryID]="category.id"></app-fa-icon>
+        <span class="main-category__name">{{ category.name }}</span>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+  <div>
+    <h3 class="main-category-in-sub">{{ mainCategoryName }}</h3>
+    <mat-selection-list
+      class="selection-list selection-list__sub"
+      #subCategoriesList
+      [multiple]="false"
+    >
+      <mat-list-option
+        *ngFor="let subCategory of subCategories$ | async"
+        [value]="subCategory.id"
+        (mouseover)="onMouseOverSubCategoryHandler(subCategory)"
+        [routerLink]="[mainCategoryID, subCategory.id]"
+      >
+        {{ subCategory.name }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</div>
